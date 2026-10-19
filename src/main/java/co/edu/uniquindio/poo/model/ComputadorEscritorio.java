@@ -15,4 +15,28 @@ public class ComputadorEscritorio extends Equipo {
       this.cantidadRAM= cantidadRAM;
       this.graficaDedicada= graficaDedicada;
    }
+
+   public String getTipoProcesador() {
+      return tipoProcesador;
+   }
+
+   public void setTipoProcesador(String tipoProcesador) {
+      this.tipoProcesador = tipoProcesador;
+   }
+
+   public int getCantidadRAM() {
+      return cantidadRAM;
+   }
+
+   public void setCantidadRAM(int cantidadRAM) {
+      this.cantidadRAM = cantidadRAM;
+   }
+
+   public boolean isGraficaDedicada() {
+      return graficaDedicada;
+   }
+
+   public void setGraficaDedicada(boolean graficaDedicada) {
+      this.graficaDedicada = graficaDedicada;
+   }
 }

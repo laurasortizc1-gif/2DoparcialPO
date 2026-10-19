@@ -36,4 +36,5 @@ public class Tecnico extends Persona {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
 }
