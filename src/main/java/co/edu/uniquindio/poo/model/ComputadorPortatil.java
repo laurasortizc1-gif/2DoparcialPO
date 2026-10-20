@@ -44,4 +44,9 @@ public class ComputadorPortatil extends Equipo{
     public boolean validarAtributos() {
         return validarAtributosenComun() && tamañoPantalla>0 && capacidadRAM>0;
     }
+
+    @Override
+    public int SacartarifaMantenimiento() {
+        return  60000;
+    }
 }

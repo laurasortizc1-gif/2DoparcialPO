@@ -44,4 +44,11 @@ public class ComputadorEscritorio extends Equipo {
    public boolean validarAtributos() {
       return validarAtributosenComun() && tipoProcesador!=null && !tipoProcesador.isBlank() && cantidadRAM>0;
    }
+
+   @Override
+   public int SacartarifaMantenimiento() {
+      return 70000;
+   }
+
+
 }

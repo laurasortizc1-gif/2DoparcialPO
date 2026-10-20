@@ -10,11 +10,15 @@ public class DetalleOrden {
     private int horasDeTrabajo;
     private String observacionesTecnicas;
     private String estadoIntervencion;
+    private Equipo equipoIntervenido;
+    private int cantidadRepuestos;
+    private Inventario inventario;
 
     public DetalleOrden(String codigo, String codigoEquipoIntervenido,
                         String descripcionFallaNecesidad, String tecnicoResponsable,
                         int horasDeTrabajo, String observacionesTecnicas,
-                        String estadoIntervencion) {
+                        String estadoIntervencion,Equipo equipoIntervenido, int cantidadRepuestos,
+                        Inventario inventario) {
         this.codigo = codigo;
         this.codigoEquipoIntervenido = codigoEquipoIntervenido;
         this.descripcionFallaNecesidad= descripcionFallaNecesidad;
@@ -22,6 +26,33 @@ public class DetalleOrden {
         this.horasDeTrabajo= horasDeTrabajo;
         this.observacionesTecnicas= observacionesTecnicas;
         this.estadoIntervencion= estadoIntervencion;
+        this.equipoIntervenido=equipoIntervenido;
+        this.cantidadRepuestos=cantidadRepuestos;
+        this.inventario=inventario;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public int getCantidadRepuestos() {
+        return cantidadRepuestos;
+    }
+
+    public void setCantidadRepuestos(int cantidadRepuestos) {
+        this.cantidadRepuestos = cantidadRepuestos;
+    }
+
+    public Equipo getEquipoIntervenido() {
+        return equipoIntervenido;
+    }
+
+    public void setEquipoIntervenido(Equipo equipoIntervenido) {
+        this.equipoIntervenido = equipoIntervenido;
     }
 
     public String getCodigo() {
