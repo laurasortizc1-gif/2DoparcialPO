@@ -7,17 +7,17 @@ import java.util.List;
 public class OrdenServicio {
     private final String codigo;
     private final LocalDate fecha;
-    private String nombreCliente; //No me dejo usar el get para sacar
+    private Cliente cliente; //No me dejo usar el get para sacar
                                 // el nombre asi que lo dejo en String
     private String observaciones;
     private EstadoOrden estadoOrden;
     private final List<DetalleOrden> ListaDetalles = new LinkedList<>();
 
-    public OrdenServicio(String codigo, LocalDate fecha, String nombreCliente,
+    public OrdenServicio(String codigo, LocalDate fecha, Cliente cliente,
                          String observaciones, EstadoOrden estadoOrden) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.nombreCliente= nombreCliente;
+        this.cliente= cliente;
         this.observaciones= observaciones;
         this.estadoOrden= estadoOrden;
     }
@@ -30,12 +30,12 @@ public class OrdenServicio {
         return fecha;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getObservaciones() {

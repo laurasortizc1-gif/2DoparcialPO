@@ -39,4 +39,9 @@ public class ComputadorPortatil extends Equipo{
     public void setBateriaExtraible(boolean bateriaExtraible) {
         this.bateriaExtraible = bateriaExtraible;
     }
+
+    @Override
+    public boolean validarAtributos() {
+        return validarAtributosenComun() && tamañoPantalla>0 && capacidadRAM>0;
+    }
 }

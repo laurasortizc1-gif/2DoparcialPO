@@ -39,4 +39,9 @@ public class TelefonoInteligente extends Equipo {
   public void setGraficaDedicada(boolean graficaDedicada) {
     this.graficaDedicada = graficaDedicada;
   }
+
+  @Override
+  public boolean validarAtributos() {
+    return validarAtributos() && tipoProcesador!=null && !tipoProcesador.isBlank() && cantidadRAM>0;
+  }
 }

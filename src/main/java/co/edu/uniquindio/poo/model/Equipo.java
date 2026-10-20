@@ -59,4 +59,15 @@ public abstract class Equipo {
     public void setCapacidadAlmacenamiento(int capacidadAlmacenamiento) {
         this.capacidadAlmacenamiento = capacidadAlmacenamiento;
     }
+
+    //validar atributos (punto2)
+    public abstract boolean validarAtributos();
+    public boolean validarAtributosenComun(){
+        return codigo!=null && !codigo.isBlank() && marca!=null && !marca.isBlank() && numeroSerie!=null &&
+                !numeroSerie.isBlank() && añoFabricacion!=null && !añoFabricacion.isBlank() &&descripcionEstado!=null
+                && !descripcionEstado.isBlank() && capacidadAlmacenamiento>0;
+    }
+
+
 }
+
