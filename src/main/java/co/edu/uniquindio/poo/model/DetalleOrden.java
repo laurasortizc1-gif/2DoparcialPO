@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class DetalleOrden {
     private final String codigo;
     private final String codigoEquipoIntervenido;//Por si hay más de un equipo
@@ -13,12 +16,15 @@ public class DetalleOrden {
     private Equipo equipoIntervenido;
     private int cantidadRepuestos;
     private Inventario inventario;
+    private EstadoIntervencion estadoIntervencion;
+    private List<Intervencion> listaIntervenciones = new LinkedList<>();
 
     public DetalleOrden(String codigo, String codigoEquipoIntervenido,
                         String descripcionFallaNecesidad, String tecnicoResponsable,
                         int horasDeTrabajo, String observacionesTecnicas,
                         String estadoIntervencion,Equipo equipoIntervenido, int cantidadRepuestos,
                         Inventario inventario) {
+                        EstadoIntervencion estadoIntervencion, List <Intervencion> listaIntervenciones) {
         this.codigo = codigo;
         this.codigoEquipoIntervenido = codigoEquipoIntervenido;
         this.descripcionFallaNecesidad= descripcionFallaNecesidad;
@@ -53,6 +59,7 @@ public class DetalleOrden {
 
     public void setEquipoIntervenido(Equipo equipoIntervenido) {
         this.equipoIntervenido = equipoIntervenido;
+        this.listaIntervenciones= listaIntervenciones;
     }
 
     public String getCodigo() {
@@ -95,11 +102,27 @@ public class DetalleOrden {
         this.observacionesTecnicas = observacionesTecnicas;
     }
 
-    public String getEstadoIntervencion() {
+    public EstadoIntervencion getEstadoIntervencion() {
         return estadoIntervencion;
     }
 
-    public void setEstadoIntervencion(String estadoIntervencion) {
+    public void setEstadoIntervencion(EstadoIntervencion estadoIntervencion) {
         this.estadoIntervencion = estadoIntervencion;
+    }
+
+    public List<Intervencion> getListaIntervenciones() {
+        return listaIntervenciones;
+    }
+
+    public void setListaIntervenciones(List<Intervencion> listaIntervenciones) {
+        this.listaIntervenciones = listaIntervenciones;
+    }
+    public String actualizarEstadoDetalle(EstadoIntervencion nuevoEstado){
+        String mensaje="";
+        if(nuevoEstado != estadoIntervencion){
+            estadoIntervencion =nuevoEstado;
+            mensaje+="Su esatdo ha sido actualizado exitosamente.";
+        }
+        return mensaje;
     }
 }

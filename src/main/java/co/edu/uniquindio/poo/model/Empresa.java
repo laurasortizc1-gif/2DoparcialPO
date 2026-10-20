@@ -18,6 +18,7 @@ public class Empresa {
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
     private  Map<String, ArrayList<Equipo>> equiposMapporCliente=new HashMap<>();
     private List <Inventario> listaRepuestos1 = new LinkedList<>();
+    private List <Inventario> listaRepuestos = new LinkedList<>();
 
     public Empresa(String nombre) {
 
