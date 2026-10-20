@@ -1,6 +1,8 @@
 package co.edu.uniquindio.poo.model;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 public class OrdenServicio {
     private final String codigo;
@@ -9,6 +11,7 @@ public class OrdenServicio {
                                 // el nombre asi que lo dejo en String
     private String observaciones;
     private EstadoOrden estadoOrden;
+    private final List<DetalleOrden> ListaDetalles = new LinkedList<>();
 
     public OrdenServicio(String codigo, LocalDate fecha, Cliente cliente,
                          String observaciones, EstadoOrden estadoOrden) {
@@ -49,5 +52,13 @@ public class OrdenServicio {
 
     public void setEstadoOrden(EstadoOrden estadoOrden) {
         this.estadoOrden = estadoOrden;
+    }
+
+    public String finalizarOrden(){
+        String mensaje="";
+        if(estadoOrden.equals(EstadoOrden.CANCELADA) || estadoOrden.equals(EstadoOrden.FINALIZADA)){
+            mensaje+="Esta orden ya esta finalizada.";
+        }
+        return mensaje;
     }
 }

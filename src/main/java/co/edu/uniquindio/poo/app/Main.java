@@ -1,17 +1,60 @@
 package co.edu.uniquindio.poo.app;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import javax.swing.*;
+import java.util.LinkedList;
+import java.util.List;
+
+import co.edu.uniquindio.poo.model.Empresa;
+import co.edu.uniquindio.poo.model.OrdenServicio;
+import co.edu.uniquindio.poo.model.Cliente;
+
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+        Empresa empresa = new Empresa("TechRepair");
+
+        int opcion;
+        do {
+            opcion = Integer.valueOf(JOptionPane.showInputDialog(null,
+                    "Por favor selecciones una opcion :\n ---Menu--\n" +
+                            "1. Registrar usuario\n" +
+                            " 2. Buscar usuario vip\n" +
+                            " 3. Mostrar Matriz ocupacional\n" +
+                            " 4. Verificar reserva especial\n" +
+                            " 5. Mostrar reporte de ingresos\n" +
+                            " 6. Mostrar control maquinas\n" +
+                            " 7. Mostrar analisis rendimiento entrenadores\n" +
+                            ""));
+
+            switch (opcion) {
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                case 0:
+
+                    break;
+                default:
+
+            }
         }
+        while (opcion != 0);
     }
 }
