@@ -3,10 +3,12 @@ package co.edu.uniquindio.poo.app;
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ArrayList;
 
+import co.edu.uniquindio.poo.model.*;
+import co.edu.uniquindio.poo.model.Equipo;
+import co.edu.uniquindio.poo.model.Inventario;
 import co.edu.uniquindio.poo.model.Empresa;
-import co.edu.uniquindio.poo.model.OrdenServicio;
-import co.edu.uniquindio.poo.model.Cliente;
 
 public class Main {
     static void main() {
@@ -17,13 +19,13 @@ public class Main {
         do {
             opcion = Integer.valueOf(JOptionPane.showInputDialog(null,
                     "Por favor selecciones una opcion :\n ---Menu--\n" +
-                            "1. Registrar usuario\n" +
-                            " 2. Buscar usuario vip\n" +
-                            " 3. Mostrar Matriz ocupacional\n" +
-                            " 4. Verificar reserva especial\n" +
-                            " 5. Mostrar reporte de ingresos\n" +
-                            " 6. Mostrar control maquinas\n" +
-                            " 7. Mostrar analisis rendimiento entrenadores\n" +
+                            "1. \n" +
+                            " 2. \n" +
+                            " 3. \n" +
+                            " 4. \n" +
+                            " 5. \n" +
+                            " 6. \n" +
+                            " 7. \n" +
                             ""));
 
             switch (opcion) {
@@ -57,4 +59,5 @@ public class Main {
         }
         while (opcion != 0);
     }
+
 }
