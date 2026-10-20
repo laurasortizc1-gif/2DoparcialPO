@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
+import java.util.List;
+
 public class Tecnico extends Persona {
 
     private String codigo;

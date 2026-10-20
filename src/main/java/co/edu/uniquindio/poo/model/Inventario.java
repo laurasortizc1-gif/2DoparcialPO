@@ -1,5 +1,8 @@
 package co.edu.uniquindio.poo.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Inventario {
     private final String codigo;
     private String nombre;
@@ -50,7 +53,6 @@ public class Inventario {
     public int getCantidadDisponible() {
         return cantidadDisponible;
     }
-
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }

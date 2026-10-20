@@ -2,22 +2,31 @@ package co.edu.uniquindio.poo.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class OrdenServicio {
     private final String codigo;
     private final LocalDate fecha;
     private Cliente cliente; //No me dejo usar el get para sacar
-                                // el nombre asi que lo dejo en String
+    // el nombre asi que lo dejo en String
     private String observaciones;
     private EstadoOrden estadoOrden;
      private final ArrayList<DetalleOrden>listaDetalles= new ArrayList<>();
+    private final List<DetalleOrden> ListaDetalles = new LinkedList<>();
+
     public OrdenServicio(String codigo, LocalDate fecha, Cliente cliente,
                          String observaciones, EstadoOrden estadoOrden) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.cliente= cliente;
-        this.observaciones= observaciones;
-        this.estadoOrden= estadoOrden;
+        this.cliente = cliente;
+        this.observaciones = observaciones;
+        this.estadoOrden = estadoOrden;
+
+
+    }
+    public List<DetalleOrden> getListaDetalles() {
+        return ListaDetalles;
     }
 
     public String getCodigo() {
@@ -58,4 +67,17 @@ public class OrdenServicio {
     public ArrayList<DetalleOrden> getListaDetalles(){
         return listaDetalles;
     }
+
+
+        //12.Finalizar orden
+        public String finalizarOrden () {
+            String mensaje = "";
+            if (estadoOrden.equals(EstadoOrden.CANCELADA) || estadoOrden.equals(EstadoOrden.FINALIZADA)) {
+                mensaje += "Esta orden ya esta finalizada.";
+            }
+            return mensaje;
+        }
+    }
+
+
 }
