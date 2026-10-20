@@ -68,6 +68,8 @@ public abstract class Equipo {
                 && !descripcionEstado.isBlank() && capacidadAlmacenamiento>0;
     }
 
+    public abstract int SacartarifaMantenimiento();
+
 
 }
 
