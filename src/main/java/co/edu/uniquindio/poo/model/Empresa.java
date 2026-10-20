@@ -17,6 +17,7 @@ public class Empresa {
     private ArrayList<Inventario> listaRepuestos = new ArrayList<>();
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
     private  Map<String, ArrayList<Equipo>> equiposMapporCliente=new HashMap<>();
+    private ArrayList<Servicios> listaServicios= new ArrayList<>();
     private List <Inventario> listaRepuestos1 = new LinkedList<>();
 
 
@@ -147,6 +148,49 @@ public class Empresa {
 
         //6.Agregar detalle a una orden: Seleccionar un equipo del cliente, un servicio y registrar la
         //falla reportada.
+    public Optional<Servicios>buscarServicios(String codigo){
+        return listaServicios.stream()
+                .filter(s-> s.getCodigo().equals(codigo))
+                .findFirst();
+    }
+    public  String agregarDetalleOrden(DetalleOrden detalleOrden,Equipo equipo,OrdenServicio ordenServicio) {
+        String documento = ordenServicio.getCliente().getDocumentoIdentidad();
+        ArrayList<Equipo> equiposCliente = equiposMapporCliente.get(documento);
+        if (equiposCliente == null || !equiposCliente.contains(equipo)) {
+            return "el equipo no pertenece al cliente de la orden";
+        }else{
+            ordenServicio.agregarDetalle(detalleOrden);
+            return "detalle agregado exitosamente de la orden";
+        }
+    }
+
+    //7.Asignar técnico:Verificar que el técnico esté activo y autorizado para la
+    //intervención.
+    public String asignarTecnico(DetalleOrden detalleOrden, Tecnico tecnico){
+        if(!tecnico.getEstado().equalsIgnoreCase("activo")){
+            return "el tecnico no esta activo";
+        }if(!tecnico.puedeAtender(detalleOrden.getEquipoIntervenido())){
+            return "el tecnico no esta disponible para este equipo";
+        }
+        detalleOrden.setTecnicoResponsable(tecnico);
+        return "tecnico asignado exitosamente";
+    }
+
+    //8. Registrar repuestos utilizados:Agregar repuestos y cantidades a reparaciones
+    //correctivas, validando inventario.
+
+    public String registrarRepuesto(DetalleOrden detalleOrden, Inventario inventario, int cantidad){
+      if(!detalleOrden.getservicio().permiteRepuestos()){
+          return "solo las reparaciones correctivas usan repuesto";
+      }
+      if(cantidad<=0){
+          return "cantidad debe ser mayor a 0";
+      }
+      repuesto.descontar(cantidad);
+      detalleOrden.setInventario(repuesto);
+      detalleOrden.setCantidadRepuestos(cantidad);
+      return "repuesto registrado exitosamente";
+    }
 
 
        //9.Calcular valor de un detalle: Calcular el costo específico mediante el tipo de servicio

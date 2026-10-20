@@ -50,5 +50,10 @@ public class ComputadorEscritorio extends Equipo {
       return 70000;
    }
 
+   @Override
+   public Especialidad getEspecialidadRequerida() {
+      return Especialidad.COMPUTADORES;
+   }
+
 
 }

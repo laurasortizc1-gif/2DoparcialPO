@@ -49,4 +49,9 @@ public class ComputadorPortatil extends Equipo{
     public int SacartarifaMantenimiento() {
         return  60000;
     }
+
+    @Override
+    public Especialidad getEspecialidadRequerida() {
+        return Especialidad.COMPUTADORES;
+    }
 }

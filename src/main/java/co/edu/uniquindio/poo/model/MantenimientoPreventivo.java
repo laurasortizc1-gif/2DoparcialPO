@@ -11,5 +11,10 @@ public class MantenimientoPreventivo extends Servicios {
         return  equipo.SacartarifaMantenimiento();
     }
 
+    @Override
+    public boolean permiteRepuestos() {
+        return false;
+    }
+
 
 }

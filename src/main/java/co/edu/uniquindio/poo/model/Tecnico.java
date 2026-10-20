@@ -38,5 +38,8 @@ public class Tecnico extends Persona {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
+ //para el 7
+    public boolean puedeAtender(Equipo equipo){
+        return especialidad==Especialidad.SOPORTE_GENERAL || especialidad ==equipo.getEspecialidadRequerida();
+    }
 }
