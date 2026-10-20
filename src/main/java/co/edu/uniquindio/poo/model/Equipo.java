@@ -70,6 +70,7 @@ public abstract class Equipo {
 
     public abstract int SacartarifaMantenimiento();
 
-
+//para el 7
+    public abstract Especialidad getEspecialidadRequerida();
 }
 

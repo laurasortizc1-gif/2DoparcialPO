@@ -27,4 +27,9 @@ public class Diagnostico extends Servicios {
     public float costoTotalDettale(DetalleOrden detalleOrden, Equipo equipo) {
         return costoFijo;
     }
+
+    @Override
+    public boolean permiteRepuestos() {
+        return false;
+    }
 }

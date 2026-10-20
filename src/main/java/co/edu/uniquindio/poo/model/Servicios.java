@@ -43,4 +43,6 @@ public abstract class Servicios {
 
     public abstract float costoTotalDettale(DetalleOrden detalleOrden,Equipo equipo);
 
+    //8
+    public abstract boolean permiteRepuestos();
 }

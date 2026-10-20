@@ -7,6 +7,7 @@ public class Inventario {
     private float precioUnitario;
     private int cantidadDisponible;
     private String categoriaCompatibilidad;
+    private int CantidadDisponible;
 
     public Inventario(String codigo, String nombre, String descripcion,
                       float precioUnitario, int cantidadDisponible, String categoriaCompatibilidad) {
@@ -60,5 +61,9 @@ public class Inventario {
 
     public void setCategoriaCompatibilidad(String categoriaCompatibilidad) {
         this.categoriaCompatibilidad = categoriaCompatibilidad;
+    }
+    //8
+    public void descontarRepuesto (int cantidadDisponible){
+        this.CantidadDisponible-=cantidadDisponible;
     }
 }

@@ -30,5 +30,10 @@ public class ReparacionCorrectiva extends Servicios {
         return costoCorrectiva;
     }
 
+    @Override
+    public boolean permiteRepuestos() {
+        return true;
     }
+
+}
 

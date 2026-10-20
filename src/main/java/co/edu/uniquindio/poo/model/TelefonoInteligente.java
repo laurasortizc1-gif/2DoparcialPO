@@ -49,4 +49,9 @@ public class TelefonoInteligente extends Equipo {
   public int SacartarifaMantenimiento() {
     return 40000;
   }
+
+  @Override
+  public Especialidad getEspecialidadRequerida() {
+    return Especialidad.DISPOSITIVOS_MOVILES;
+  }
 }

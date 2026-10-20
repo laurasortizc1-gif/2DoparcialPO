@@ -75,7 +75,7 @@ public class DetalleOrden {
         return tecnicoResponsable;
     }
 
-    public void setTecnicoResponsable(String tecnicoResponsable) {
+    public void setTecnicoResponsable(Tecnico tecnicoResponsable) {
         this.tecnicoResponsable = tecnicoResponsable;
     }
 
