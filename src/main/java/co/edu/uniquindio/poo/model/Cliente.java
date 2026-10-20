@@ -17,6 +17,47 @@ public class Cliente extends Persona {
         this.correo= correo;
         this.direccion= direccion;
     }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<OrdenServicio> getListaOrdenes() {
+        return listaOrdenes;
+    }
+
+    public void setListaOrdenes(ArrayList<OrdenServicio> listaOrdenes) {
+        this.listaOrdenes = listaOrdenes;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public List<Equipo> getListaEquipos() {
+        return listaEquipos;
+    }
+
+    public void setListaEquipos(List<Equipo> listaEquipos) {
+        this.listaEquipos = listaEquipos;
+    }
+
     //15. equipos pendientes
     public List <Equipo> listaEquiposAunIntervenidos(){
         List <Equipo> listaEquiposSinFinalizarIntervencion= new LinkedList<>();
@@ -29,4 +70,5 @@ public class Cliente extends Persona {
         }
         return listaEquiposSinFinalizarIntervencion;
     }
+    public
 }
