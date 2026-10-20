@@ -6,14 +6,16 @@ public class Inventario {
     private String descripcion;
     private float precioUnitario;
     private int cantidadDisponible;
+    private String categoriaCompatibilidad;
 
     public Inventario(String codigo, String nombre, String descripcion,
-                      float precioUnitario, int cantidadDisponible) {
+                      float precioUnitario, int cantidadDisponible, String categoriaCompatibilidad) {
         this.codigo = codigo;
-        this.nombre= nombre;
-        this.descripcion= descripcion;
-        this.precioUnitario= precioUnitario;
-        this.cantidadDisponible= cantidadDisponible;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precioUnitario = precioUnitario;
+        this.cantidadDisponible = cantidadDisponible;
+        this.categoriaCompatibilidad = categoriaCompatibilidad;
     }
 
     public String getCodigo() {
@@ -50,5 +52,13 @@ public class Inventario {
 
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public String getCategoriaCompatibilidad() {
+        return categoriaCompatibilidad;
+    }
+
+    public void setCategoriaCompatibilidad(String categoriaCompatibilidad) {
+        this.categoriaCompatibilidad = categoriaCompatibilidad;
     }
 }
