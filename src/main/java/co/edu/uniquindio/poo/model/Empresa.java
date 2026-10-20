@@ -17,6 +17,8 @@ public class Empresa {
     private ArrayList<Inventario> listaRepuestos = new ArrayList<>();
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
     private  Map<String, ArrayList<Equipo>> equiposMapporCliente=new HashMap<>();
+    private List <Inventario> listaRepuestos1 = new LinkedList<>();
+    private List <Inventario> listaRepuestos = new LinkedList<>();
 
     public Empresa(String nombre) {
 
@@ -136,6 +138,20 @@ public class Empresa {
         }
     }
     //18.Inventario Critico
+        }
+
+        //6.Agregar detalle a una orden: Seleccionar un equipo del cliente, un servicio y registrar la
+        //falla reportada.
+
+
+       //9.Calcular valor de un detalle: Calcular el costo específico mediante el tipo de servicio
+      //solicitado.
+
+      public float calcularValorDetalle(DetalleOrden detalleOrden,Servicios servicio){
+         return servicio.costoTotalDettale(detalleOrden, detalleOrden.getEquipoIntervenido());
+      }
+
+
     public List <Inventario> listaRepuestosEscasos(){
         List <Inventario> listaDePocosRepuestos = new LinkedList<>();
 

@@ -44,4 +44,9 @@ public class TelefonoInteligente extends Equipo {
   public boolean validarAtributos() {
     return validarAtributos() && tipoProcesador!=null && !tipoProcesador.isBlank() && cantidadRAM>0;
   }
+
+  @Override
+  public int SacartarifaMantenimiento() {
+    return 40000;
+  }
 }

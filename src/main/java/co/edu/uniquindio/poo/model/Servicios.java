@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.model;
 
-public class Servicios {
+public abstract class Servicios {
     private final String codigo;
     private String nombre;
     private float tarifaBase;
@@ -8,9 +8,9 @@ public class Servicios {
 
     public Servicios(String codigo, String nombre, float tarifaBase, String descripcionEstado) {
         this.codigo = codigo;
-        this.nombre= nombre;
-        this.tarifaBase= tarifaBase;
-        this.descripcionEstado= descripcionEstado;
+        this.nombre = nombre;
+        this.tarifaBase = tarifaBase;
+        this.descripcionEstado = descripcionEstado;
     }
 
     public String getCodigo() {
@@ -40,4 +40,7 @@ public class Servicios {
     public void setDescripcionEstado(String descripcionEstado) {
         this.descripcionEstado = descripcionEstado;
     }
+
+    public abstract float costoTotalDettale(DetalleOrden detalleOrden,Equipo equipo);
+
 }

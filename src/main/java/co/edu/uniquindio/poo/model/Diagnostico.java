@@ -4,7 +4,8 @@ public class Diagnostico extends Servicios {
     private String fallasEquipo;
     private final int costoFijo= 35000;
 
-    public Diagnostico(String codigo, String nombre, float tarifaBase, String descripcionEstado, String fallasEquipo) {
+    public Diagnostico(String codigo, String nombre, float tarifaBase
+            , String descripcionEstado, String fallasEquipo) {
         super(codigo, nombre, tarifaBase, descripcionEstado);
         this.fallasEquipo = fallasEquipo;
     }
@@ -18,6 +19,12 @@ public class Diagnostico extends Servicios {
     }
 
     public int getCostoFijo() {
+        return costoFijo;
+    }
+
+
+    @Override
+    public float costoTotalDettale(DetalleOrden detalleOrden, Equipo equipo) {
         return costoFijo;
     }
 }
