@@ -10,11 +10,11 @@ import java.util.List;
 
 public class Empresa {
 
-    private final String nombre;
+    private String nombre;
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     private  ArrayList<Equipo> listaEquipos = new ArrayList<>();
     private  ArrayList<Tecnico> listaTecnicos = new ArrayList<>();
-    private  ArrayList<Inventario> listaRepuestos = new ArrayList<>();
+    private ArrayList<Inventario> listaRepuestos = new ArrayList<>();
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
     private  Map<String, ArrayList<Equipo>> equiposMapporCliente=new HashMap<>();
     private List <Inventario> listaRepuestos1 = new LinkedList<>();
@@ -25,12 +25,18 @@ public class Empresa {
         this.nombre = nombre;
     }
 
+    public Empresa(ArrayList<Inventario> listaRepuestos) {
+        this.listaRepuestos = listaRepuestos;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-
-    //1.Registrar cliente:Registrar y validar los datos personales, evitando documentos repetidos.
+    public void setListaRepuestos(ArrayList<Inventario> listaRepuestos) {
+        this.listaRepuestos = listaRepuestos;
+    }
+//1.Registrar cliente:Registrar y validar los datos personales, evitando documentos repetidos.
 
     public String registrarCliente(Cliente cliente){
         Optional<Cliente> clienteOptional = buscarCliente(cliente.getDocumentoIdentidad());
@@ -122,14 +128,16 @@ public class Empresa {
         Optional<Cliente> clienteOptional = buscarCliente(documentoIdentidad);
         if (clienteOptional.isPresent()) {
 
-        OrdenServicio ordenes= new OrdenServicio(ordenServicio.getCodigo(), ordenServicio.getFecha(),
-                clienteOptional.get(), ordenServicio.getObservaciones(),estadoOrden.ABIERTA);
+            OrdenServicio ordenes = new OrdenServicio(ordenServicio.getCodigo(), ordenServicio.getFecha(),
+                    clienteOptional.get(), ordenServicio.getObservaciones(), estadoOrden.ABIERTA);
 
             listaOrdenes.add(ordenes);
             return "orden creada exitosamente";
-        }else{
+        } else {
             return "el cliente no existe, la orden no puede crearse";
         }
+    }
+    //18.Inventario Critico
         }
 
         //6.Agregar detalle a una orden: Seleccionar un equipo del cliente, un servicio y registrar la
@@ -145,7 +153,7 @@ public class Empresa {
 
 
     public List <Inventario> listaRepuestosEscasos(){
-        List <Inventario> listaDePocosRepuestos = new LinkedList<> ();
+        List <Inventario> listaDePocosRepuestos = new LinkedList<>();
 
         for(Inventario a: listaRepuestos){
             if(a.getCantidadDisponible()<5){

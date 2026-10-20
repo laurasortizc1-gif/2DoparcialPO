@@ -9,12 +9,24 @@ public class Cliente extends Persona {
     private String correo;
     private String direccion;
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
-    private List <OrdenServicio> listaOrdenes = new LinkedList<>();
+    private List <Equipo> listaEquipos= new LinkedList<>();
 
     public Cliente(String nombre, String documentoIdentidad, String numeroTelefono, String correo, String direccion) {
         super(nombre, documentoIdentidad);
         this.numeroTelefono = numeroTelefono;
         this.correo= correo;
         this.direccion= direccion;
+    }
+    //15. equipos pendientes
+    public List <Equipo> listaEquiposAunIntervenidos(){
+        List <Equipo> listaEquiposSinFinalizarIntervencion= new LinkedList<>();
+        for(Equipo a: listaEquipos) {
+            for (OrdenServicio b : listaOrdenes) {
+                if (b.getEstadoOrden().equals(EstadoOrden.EN_PROCESO)) {
+                    listaEquiposSinFinalizarIntervencion.add(a);
+                }
+            }
+        }
+        return listaEquiposSinFinalizarIntervencion;
     }
 }

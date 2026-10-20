@@ -117,6 +117,7 @@ public class DetalleOrden {
     public void setListaIntervenciones(List<Intervencion> listaIntervenciones) {
         this.listaIntervenciones = listaIntervenciones;
     }
+    //11. Actualizar estado detalle
     public String actualizarEstadoDetalle(EstadoIntervencion nuevoEstado){
         String mensaje="";
         if(nuevoEstado != estadoIntervencion){

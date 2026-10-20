@@ -54,11 +54,18 @@ public class OrdenServicio {
         this.estadoOrden = estadoOrden;
     }
 
+    //12.Finalizar orden
     public String finalizarOrden(){
         String mensaje="";
         if(estadoOrden.equals(EstadoOrden.CANCELADA) || estadoOrden.equals(EstadoOrden.FINALIZADA)){
             mensaje+="Esta orden ya esta finalizada.";
         }
+        return mensaje;
+    }
+    //10.Valor total
+    public String calcularValorTotal(){
+        String mensaje="";
+        int valorTotal=0;
         return mensaje;
     }
 }
