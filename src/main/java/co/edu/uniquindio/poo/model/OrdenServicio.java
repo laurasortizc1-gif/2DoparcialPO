@@ -8,7 +8,7 @@ public class OrdenServicio {
     private final String codigo;
     private final LocalDate fecha;
     private Cliente cliente; //No me dejo usar el get para sacar
-                                // el nombre asi que lo dejo en String
+    // el nombre asi que lo dejo en String
     private String observaciones;
     private EstadoOrden estadoOrden;
     private final List<DetalleOrden> ListaDetalles = new LinkedList<>();
@@ -17,9 +17,14 @@ public class OrdenServicio {
                          String observaciones, EstadoOrden estadoOrden) {
         this.codigo = codigo;
         this.fecha = fecha;
-        this.cliente= cliente;
-        this.observaciones= observaciones;
-        this.estadoOrden= estadoOrden;
+        this.cliente = cliente;
+        this.observaciones = observaciones;
+        this.estadoOrden = estadoOrden;
+
+
+    }
+    public List<DetalleOrden> getListaDetalles() {
+        return ListaDetalles;
     }
 
     public String getCodigo() {
@@ -54,18 +59,16 @@ public class OrdenServicio {
         this.estadoOrden = estadoOrden;
     }
 
-    //12.Finalizar orden
-    public String finalizarOrden(){
-        String mensaje="";
-        if(estadoOrden.equals(EstadoOrden.CANCELADA) || estadoOrden.equals(EstadoOrden.FINALIZADA)){
-            mensaje+="Esta orden ya esta finalizada.";
+
+        //12.Finalizar orden
+        public String finalizarOrden () {
+            String mensaje = "";
+            if (estadoOrden.equals(EstadoOrden.CANCELADA) || estadoOrden.equals(EstadoOrden.FINALIZADA)) {
+                mensaje += "Esta orden ya esta finalizada.";
+            }
+            return mensaje;
         }
-        return mensaje;
     }
-    //10.Valor total
-    public String calcularValorTotal(){
-        String mensaje="";
-        int valorTotal=0;
-        return mensaje;
-    }
+
+
 }

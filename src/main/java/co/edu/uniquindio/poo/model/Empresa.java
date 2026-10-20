@@ -18,7 +18,8 @@ public class Empresa {
     private  ArrayList<OrdenServicio> listaOrdenes = new ArrayList<>();
     private  Map<String, ArrayList<Equipo>> equiposMapporCliente=new HashMap<>();
     private List <Inventario> listaRepuestos1 = new LinkedList<>();
-    private List <Inventario> listaRepuestos = new LinkedList<>();
+
+
 
     public Empresa(String nombre) {
 
@@ -36,7 +37,11 @@ public class Empresa {
     public void setListaRepuestos(ArrayList<Inventario> listaRepuestos) {
         this.listaRepuestos = listaRepuestos;
     }
-//1.Registrar cliente:Registrar y validar los datos personales, evitando documentos repetidos.
+
+    public ArrayList<Inventario> getListaRepuestos() {
+        return listaRepuestos;
+    }
+    //1.Registrar cliente:Registrar y validar los datos personales, evitando documentos repetidos.
 
     public String registrarCliente(Cliente cliente){
         Optional<Cliente> clienteOptional = buscarCliente(cliente.getDocumentoIdentidad());
@@ -138,7 +143,7 @@ public class Empresa {
         }
     }
     //18.Inventario Critico
-        }
+
 
         //6.Agregar detalle a una orden: Seleccionar un equipo del cliente, un servicio y registrar la
         //falla reportada.
@@ -151,15 +156,51 @@ public class Empresa {
          return servicio.costoTotalDettale(detalleOrden, detalleOrden.getEquipoIntervenido());
       }
 
+      //18.Repuestos menores a 5
 
     public List <Inventario> listaRepuestosEscasos(){
         List <Inventario> listaDePocosRepuestos = new LinkedList<>();
 
-        for(Inventario a: listaRepuestos){
+        for(Inventario a: Empresa.getListaRepuestos()){
             if(a.getCantidadDisponible()<5){
                 listaDePocosRepuestos.add(a);
             }
         }
         return listaDePocosRepuestos;
     }
+    //14.Consultar trabajos de un tecnico
+public static List<DetalleOrden> consultarTrabajosDeTecnico(List<OrdenServicio> listaOrdenes, String codigoTecnico) {
+    List<DetalleOrden> trabajosRealizados = new ArrayList<>();
+
+    for (OrdenServicio orden : listaOrdenes) {
+        for (DetalleOrden detalle : orden.getListaDetalles()) {
+            if (detalle.getTecnicoResponsable().equals(codigoTecnico)) {
+                trabajosRealizados.add(detalle);
+            }
+        }
+    }
+    return trabajosRealizados;
 }
+public static void generarReporteServicios(List<OrdenServicio> listaOrdenes, List<Servicios> listaServicios) {
+
+    for (Servicios servicio : listaServicios) {
+        int cantidad = 0;
+        double total = 0;
+
+        for (OrdenServicio o : listaOrdenes) {
+            for (DetalleOrden d : o.getListaDetalles()) {
+
+                boolean esDeEsteServicio = d.getServicioRequerido().equals(servicio.getNombre());
+
+                if (esDeEsteServicio && d.getEstadoIntervencion().equals("FINALIZADA")) {
+                    cantidad++;
+                    total += calcularValorDetalle();
+                }
+            }
+        }
+        System.out.println("El servicio " + servicio.getNombre() + "ha sido utilizado: " + cantidad + " veces, con un total de $" + total);
+    }
+}
+
+}
+

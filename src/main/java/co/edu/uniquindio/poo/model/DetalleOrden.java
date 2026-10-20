@@ -12,19 +12,19 @@ public class DetalleOrden {
     private String tecnicoResponsable;
     private int horasDeTrabajo;
     private String observacionesTecnicas;
-    private String estadoIntervencion;
     private Equipo equipoIntervenido;
     private int cantidadRepuestos;
     private Inventario inventario;
     private EstadoIntervencion estadoIntervencion;
     private List<Intervencion> listaIntervenciones = new LinkedList<>();
+    private Servicios servicioRequerido;
 
     public DetalleOrden(String codigo, String codigoEquipoIntervenido,
                         String descripcionFallaNecesidad, String tecnicoResponsable,
-                        int horasDeTrabajo, String observacionesTecnicas,
-                        String estadoIntervencion,Equipo equipoIntervenido, int cantidadRepuestos,
+                        int horasDeTrabajo, String observacionesTecnicas
+                        ,Equipo equipoIntervenido, int cantidadRepuestos,
                         Inventario inventario) {
-                        EstadoIntervencion estadoIntervencion, List <Intervencion> listaIntervenciones) {
+                        EstadoIntervencion estadoIntervencion, List <Intervencion> listaIntervenciones)
         this.codigo = codigo;
         this.codigoEquipoIntervenido = codigoEquipoIntervenido;
         this.descripcionFallaNecesidad= descripcionFallaNecesidad;
@@ -35,31 +35,22 @@ public class DetalleOrden {
         this.equipoIntervenido=equipoIntervenido;
         this.cantidadRepuestos=cantidadRepuestos;
         this.inventario=inventario;
+
+    }
+    public Servicios getServicioRequerido() {
+        return servicioRequerido;
     }
 
-    public Inventario getInventario() {
-        return inventario;
+    public void setServicioRequerido(Servicios servicioRequerido) {
+        this.servicioRequerido = servicioRequerido;
     }
 
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
+    public List<Intervencion> getListaIntervenciones() {
+        return listaIntervenciones;
     }
 
-    public int getCantidadRepuestos() {
-        return cantidadRepuestos;
-    }
-
-    public void setCantidadRepuestos(int cantidadRepuestos) {
-        this.cantidadRepuestos = cantidadRepuestos;
-    }
-
-    public Equipo getEquipoIntervenido() {
-        return equipoIntervenido;
-    }
-
-    public void setEquipoIntervenido(Equipo equipoIntervenido) {
-        this.equipoIntervenido = equipoIntervenido;
-        this.listaIntervenciones= listaIntervenciones;
+    public void setListaIntervenciones(List<Intervencion> listaIntervenciones) {
+        this.listaIntervenciones = listaIntervenciones;
     }
 
     public String getCodigo() {
@@ -102,6 +93,30 @@ public class DetalleOrden {
         this.observacionesTecnicas = observacionesTecnicas;
     }
 
+    public Equipo getEquipoIntervenido() {
+        return equipoIntervenido;
+    }
+
+    public void setEquipoIntervenido(Equipo equipoIntervenido) {
+        this.equipoIntervenido = equipoIntervenido;
+    }
+
+    public int getCantidadRepuestos() {
+        return cantidadRepuestos;
+    }
+
+    public void setCantidadRepuestos(int cantidadRepuestos) {
+        this.cantidadRepuestos = cantidadRepuestos;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
     public EstadoIntervencion getEstadoIntervencion() {
         return estadoIntervencion;
     }
@@ -110,20 +125,20 @@ public class DetalleOrden {
         this.estadoIntervencion = estadoIntervencion;
     }
 
-    public List<Intervencion> getListaIntervenciones() {
-        return listaIntervenciones;
-    }
-
-    public void setListaIntervenciones(List<Intervencion> listaIntervenciones) {
-        this.listaIntervenciones = listaIntervenciones;
-    }
     //11. Actualizar estado detalle
     public String actualizarEstadoDetalle(EstadoIntervencion nuevoEstado){
         String mensaje="";
         if(nuevoEstado != estadoIntervencion){
             estadoIntervencion =nuevoEstado;
-            mensaje+="Su esatdo ha sido actualizado exitosamente.";
+            mensaje+="Su estado ha sido actualizado exitosamente.";
         }
         return mensaje;
     }
+    //10. calcularValorTotalDeLaOrden
+    public int calcularValorTotal(float calcularValorDetalle){
+            int valorTotal=0;
+            valorTotal+=calcularValorDetalle;
+            return valorTotal;
+        }
 }
+
